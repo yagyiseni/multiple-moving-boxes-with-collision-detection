@@ -1,0 +1,42 @@
+.body {
+    width: 100vw;
+    height: auto;
+}
+
+#main-div {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background-color: #a52a2a;
+}
+
+
+/*
+ #child-div {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: blueviolet;
+}
+
+#child-div-1 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ffa600;
+}
+
+#child-div-2 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #059629;
+}  */
+
+#move-btn {
+    margin-top: 10px;
+    margin-left: 150px;
+    background-color: bisque;
+    padding: 0.5%;
+    width: 100px;
+}
