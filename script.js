@@ -17,11 +17,12 @@ function createBoxes() {
         var dy = positionGeneratory();
         Boxes.setAttribute('name', 'child-div-' + i);
         Boxes.setAttribute("id", "child-div-" + i);
-        Boxes.setAttribute("style", "position:absolute; top:" + dy + "px; left:" + dx + "px; height:30px; width:30px; background-color: #ffa600 ");
-        Box.push(Boxes);
+        Boxes.setAttribute("style", "position:absolute; top:" + dy + "px; left:" + dx + "px; height:30px; width:30px; background-color: #a52a2a ");
+        var ant = document.createElement("img");
+        ant.src = "ant-svg.svg";
+        ant.setAttribute("style", "width:30px; height:30px;");
+        Boxes.appendChild(ant);
         move(1, 1, dx, dy, Boxes, i);
-
-
     }
     console.log(Xposition);
     console.log(Xposition);
@@ -63,6 +64,42 @@ function move(stepx, stepy, dx, dy, Boxes, index) {
                     stepy = stepy * -1;
                     // Boxes.setAttribute("style", "background-color:" + getRandomColor());
                 }
+            }
+        }
+        if (stepx < 0) {
+            Boxes.style.transform = "rotate(270deg)";
+            if (stepy > 0) {
+                Boxes.style.transform = "rotate(-90deg)";
+            }
+            if (stepy < 0) {
+                Boxes.style.transform = "rotate(90deg)";
+            }
+        }
+        if (stepx > 0) {
+            Boxes.style.transform = "rotate(90deg)";
+            if (stepy > 0) {
+                Boxes.style.transform = "rotate(90deg)";
+            }
+            if (stepy < 0) {
+                Boxes.style.transform = "rotate(-90deg)";
+            }
+        }
+        if (stepy > 0) {
+            Boxes.style.transform = "rotate(180deg)";
+            if (stepx > 0) {
+                Boxes.style.transform = "rotate(-90deg)";
+            }
+            if (stepx < 0) {
+                Boxes.style.transform = "rotate(90deg)";
+            }
+        }
+        if (stepy < 0) {
+            Boxes.style.transform = "rotate(0deg)";
+            if (stepx > 0) {
+                Boxes.style.transform = "rotate(90deg)";
+            }
+            if (stepx < 0) {
+                Boxes.style.transform = "rotate(-90deg)";
             }
         }
     }, 10);
