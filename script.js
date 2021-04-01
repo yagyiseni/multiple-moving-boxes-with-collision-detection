@@ -5,8 +5,12 @@ var Box = new Array();
 var Xposition = new Array();
 var Yposition = new Array();
 parentBox = document.getElementById("main-div");
-
-document.getElementById('move-btn').addEventListener('click', createBoxes());
+window.onload = createBoxes();
+var counter = 0;
+paragraph = document.getElementById("counter-display");
+const cnt = document.createElement("p");
+cnt.innerText("ants killed:" + counter);
+paragraph.append(cnt);
 
 function createBoxes() {
 
@@ -22,10 +26,19 @@ function createBoxes() {
         ant.src = "ant-svg.svg";
         ant.setAttribute("style", "width:30px; height:30px;");
         Boxes.appendChild(ant);
-        move(1, 1, dx, dy, Boxes, i);
+        Boxes.addEventListener('click', function() {
+            deleteBoxes(Boxes);
+        });
+        move(0.2, 0.2, dx, dy, Boxes, i);
     }
-    console.log(Xposition);
-    console.log(Xposition);
+
+}
+
+function deleteBoxes(Boxes) {
+    counter++;
+    const del = Boxes.parentElement;
+    del.removeChild(Boxes);
+
 
 }
 
@@ -84,24 +97,24 @@ function move(stepx, stepy, dx, dy, Boxes, index) {
                 Boxes.style.transform = "rotate(-90deg)";
             }
         }
-        if (stepy > 0) {
-            Boxes.style.transform = "rotate(180deg)";
-            if (stepx > 0) {
-                Boxes.style.transform = "rotate(-90deg)";
-            }
-            if (stepx < 0) {
-                Boxes.style.transform = "rotate(90deg)";
-            }
-        }
-        if (stepy < 0) {
-            Boxes.style.transform = "rotate(0deg)";
-            if (stepx > 0) {
-                Boxes.style.transform = "rotate(90deg)";
-            }
-            if (stepx < 0) {
-                Boxes.style.transform = "rotate(-90deg)";
-            }
-        }
+        // if (stepy > 0) {
+        //     Boxes.style.transform = "rotate(180deg)";
+        //     if (stepx > 0) {
+        //         Boxes.style.transform = "rotate(-90deg)";
+        //     }
+        //     if (stepx < 0) {
+        //         Boxes.style.transform = "rotate(90deg)";
+        //     }
+        // }
+        // if (stepy < 0) {
+        //     Boxes.style.transform = "rotate(0deg)";
+        //     if (stepx > 0) {
+        //         Boxes.style.transform = "rotate(90deg)";
+        //     }
+        //     if (stepx < 0) {
+        //         Boxes.style.transform = "rotate(-90deg)";
+        //     }
+        // }
     }, 10);
 }
 
